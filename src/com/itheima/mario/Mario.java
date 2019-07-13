@@ -144,16 +144,16 @@ public class Mario extends Thread {
 			Enemy enery = gf.eneryList.get(i);
 			
 			if(dir.equals("Left")){
-				rect = new Rectangle(enery.x+2,enery.y,enery.width,enery.height);
+				rect = new Rectangle(enery.x+4,enery.y,enery.width,enery.height);
 			}else if(dir.equals("Right")){
 				// 右侧碰撞物检测。
 				rect = new Rectangle(enery.x-2,enery.y,enery.width,enery.height);
 			}
 			
 			else if(dir.equals("Up")){
-				rect = new Rectangle(enery.x,enery.y+1,enery.width,enery.height);
+				rect = new Rectangle(enery.x,enery.y+2,enery.width,enery.height);
 			}else if(dir.equals("Down")){
-				rect = new Rectangle(enery.x,enery.y-2,enery.width,enery.height);
+				rect = new Rectangle(enery.x,enery.y-1,enery.width,enery.height);
 			}
 			//碰撞检测
             //enery instanceof xx:可以判断顶到的是什么东西
@@ -204,20 +204,8 @@ public class Mario extends Thread {
                 }
                 else if(enery instanceof Brick){//顶到砖块
                     //砖块被破坏
-                   ImageIcon[] Wall=new ImageIcon[3];
-                   Wall[0]=new ImageIcon("images/wall/右上.png");
-                   Wall[1]=new ImageIcon("images/wall/右下.png");
-                   Wall[2]=new ImageIcon("images/wall/左下.png");
-                    for (int j = 0; j < 3; j++) {
-                        enery.setImg(Wall[j].getImage());
-                        try {
-                            sleep(30);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        enery.die();
-                        //加上破坏的音乐
-                    }
+                    enery.die();
+                    //加上破坏的音乐
                 }
 
 			    //撞到障碍物时 返回true

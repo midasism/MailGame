@@ -115,7 +115,7 @@ public class GameFrame extends JFrame{
                 //¶Áµ½7£¬»­Ó²×©£¨ÎÞ·¨ÆÆ»µ£©
                 if (map[i][j] == 7)
                 {
-                    staticbrick = new staticBrick(j * 30, i * 30, 30, 30, new ImageIcon("image/staticBrick.png").getImage());
+                    staticbrick = new staticBrick(j * 30, i * 30, 30, 30,null);
                     eneryList.add(staticbrick);
                 }
 			}
